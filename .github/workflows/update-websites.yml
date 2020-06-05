@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: michaelchin/test_page_public
+          token: ${{ secrets.MY_TOKEN }}
           path: public
 
       - name: Checkout private repo
