@@ -25,16 +25,16 @@ jobs:
           token: ${{ secrets.MY_TOKEN }}
           path: private
        
-       - name: Install Jekyll
-         run: |
-           apt-get install ruby-full build-essential zlib1g-dev
-           gem install bundler jekyll
-           bundle install
+      - name: Install Jekyll
+        run: |
+          apt-get install ruby-full build-essential zlib1g-dev
+          gem install bundler jekyll
+          bundle install
       
-       - name: Build site
-         run: |
-           cd private
-           bundle exec jekyll build 
+      - name: Build site
+        run: |
+          cd private
+          bundle exec jekyll build 
 
       - name: Update websites
         run: ./main/scripts/update-repositories.sh
