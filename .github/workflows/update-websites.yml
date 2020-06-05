@@ -8,24 +8,26 @@ jobs:
     container: jekyll/jekyll
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          path: main
-
-      - name: Checkout public repo
-        uses: actions/checkout@v2
-        with:
-          repository: michaelchin/test_page_public
-          token: ${{ secrets.MY_TOKEN }}
-          path: public
-
-      - name: Checkout private repo
+      - name: Checkout member backend
         uses: actions/checkout@v2
         with:
           repository: michaelchin/bgh_atlas
           token: ${{ secrets.MY_TOKEN }}
-          path: private
+          path: member_backend
+
+      - name: Checkout member frontend
+        uses: actions/checkout@v2
+        with:
+          repository: michaelchin/test_page_public
+          token: ${{ secrets.MY_TOKEN }}
+          path: member_frontend
+
+      - name: Checkout public
+        uses: actions/checkout@v2
+        with:
+          repository: michaelchin/bgh_atlas_member_public
+          token: ${{ secrets.MY_TOKEN }}
+          path: public
        
       - name: Update websites
         run: ./main/scripts/update-repositories.sh

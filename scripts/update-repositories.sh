@@ -3,18 +3,23 @@
 git config --global user.name "michaelchin"
 git config --global user.email "michael.chin@sydney.edu.au"
 
-cd private
+cd member_backend
 touch Gemfile.lock
 chmod a+w Gemfile.lock
 jekyll build
+git add -A
+git commit --message "GitHub Action to re-build the website"
+git push origin
 cd ..
 
-cp -rf ./private/_site/* ./public/static/
+cp -rf ./member_backend/_site/* ./member_frontend/
 
-cd ./public
+cd ./member_frontend
+
+python replace_html.py
 
 git add -A
-git commit --message "test commit"
+git commit --message "GitHub Action to update website frontend"
 git push origin
 
 echo "Done!"
