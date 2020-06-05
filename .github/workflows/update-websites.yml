@@ -25,7 +25,6 @@ jobs:
           token: ${{ secrets.MY_TOKEN }}
           path: private
 
-
        - name: Install Jekyll
          run: |
            apt-get install ruby-full build-essential zlib1g-dev
