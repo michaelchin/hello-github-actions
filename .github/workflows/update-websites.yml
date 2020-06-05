@@ -2,9 +2,10 @@ name: Update websites after push
 on: push
 
 jobs:
-  build:
+  update-sites:
     name: Update websites action
     runs-on: ubuntu-latest
+    container: jekyll/jekyll
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -25,20 +26,6 @@ jobs:
           token: ${{ secrets.MY_TOKEN }}
           path: private
        
-      - name: Install Jekyll
-        run: |
-          echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
-          echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
-          echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
-          source ~/.bashrc
-          gem install bundler jekyll
-          bundle install
-      
-      - name: Build site
-        run: |
-          cd private
-          bundle exec jekyll build 
-
       - name: Update websites
         run: ./main/scripts/update-repositories.sh
         env:
