@@ -30,7 +30,9 @@ jobs:
           path: public
        
       - name: Update websites
-        run: ./member_backend/scripts/update-repositories.sh
+        run: | 
+          chmod +x ./member_backend/scripts/update-repositories.sh
+          ./member_backend/scripts/update-repositories.sh
         env:
           GITHUB_TOKEN: '${{secrets.MY_TOKEN}}'
 
