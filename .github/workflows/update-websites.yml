@@ -1,0 +1,31 @@
+name: Update websites after push
+on: push
+
+jobs:
+  build:
+    name: Update websites action
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: main
+
+      - name: Checkout public repo
+        uses: actions/checkout@v2
+        with:
+          repository: michaelchin/test_page_public
+          path: public
+
+      - name: Checkout private repo
+        uses: actions/checkout@v2
+        with:
+          repository: michaelchin/test_git_page
+          token: ${{ secrets.MY_TOKEN }}
+          path: private
+
+      - name: Moving build to artifacts directory
+        run: ./scripts/update-repositories.sh
+        env:
+          GITHUB_TOKEN: '${{secrets.MY_TOKEN}}'
+
