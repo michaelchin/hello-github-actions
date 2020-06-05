@@ -27,7 +27,7 @@ jobs:
        
       - name: Install Jekyll
         run: |
-          apt-get install ruby-full build-essential zlib1g-dev
+          apt-get install -y ruby-full build-essential zlib1g-dev
           gem install bundler jekyll
           bundle install
       
