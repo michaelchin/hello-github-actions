@@ -3,7 +3,7 @@
 git config --global user.name "michaelchin"
 git config --global user.email "michael.chin@sydney.edu.au"
 
-cp -rf ./private/mysite/* ./public/mysite/*
+cp -rf ./private/_site/* ./public/static/
 
 cd ./public
 

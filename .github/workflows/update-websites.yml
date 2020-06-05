@@ -21,9 +21,19 @@ jobs:
       - name: Checkout private repo
         uses: actions/checkout@v2
         with:
-          repository: michaelchin/test_git_page
+          repository: basin-genesis-hub/bgh_atlas_member_private
           token: ${{ secrets.MY_TOKEN }}
           path: private
+
+      - name: Install Jekyll
+        run: |
+          sudo gem install bundler jekyll
+          sudo bundle install
+      
+      - name: Build site
+        run: |
+          cd private
+          bundle exec jekyll build 
 
       - name: Moving build to artifacts directory
         run: ./main/scripts/update-repositories.sh
