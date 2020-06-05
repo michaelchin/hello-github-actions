@@ -26,7 +26,7 @@ jobs:
           path: private
 
       - name: build site
-        uses: helaili/jekyll-action@2.0.1
+        uses: helaili/jekyll-action@2.0.3
         env:
           JEKYLL_PAT: ${{ secrets.MY_TOKEN }}
         with:
