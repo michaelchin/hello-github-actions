@@ -25,24 +25,19 @@ jobs:
           token: ${{ secrets.MY_TOKEN }}
           path: private
 
-      - name: build site
-        uses: helaili/jekyll-action@2.0.3
-        env:
-          JEKYLL_PAT: ${{ secrets.MY_TOKEN }}
-        with:
-          jekyll_src: './private'
 
-        #- name: Install Jekyll
-        #run: |
-        #  sudo gem install bundler jekyll
-        #  sudo bundle install
+       - name: Install Jekyll
+         run: |
+           apt-get install ruby-full build-essential zlib1g-dev
+           gem install bundler jekyll
+           bundle install
       
-        #- name: Build site
-        #run: |
-        #  cd private
-        #  bundle exec jekyll build 
+       - name: Build site
+         run: |
+           cd private
+           bundle exec jekyll build 
 
-      - name: Moving build to artifacts directory
+      - name: Update websites
         run: ./main/scripts/update-repositories.sh
         env:
           GITHUB_TOKEN: '${{secrets.MY_TOKEN}}'
