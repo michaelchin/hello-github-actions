@@ -16,7 +16,8 @@ cp -rf ./member_backend/_site/* ./member_frontend/
 
 cd ./member_frontend
 
-python replace_html.py
+apk add python
+python3 replace_html.py
 
 git add -A
 git commit --message "GitHub Action to update website frontend"
