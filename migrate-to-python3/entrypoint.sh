@@ -9,6 +9,9 @@ echo $PWD
 python3 /2to3_nb.py . 
 
 touch test.tmp
+
+git config user.name "michaelchin" 
+git config user.email "michael.chin@sydney.edu.au" 
 git add .
 git commit -m"action"
 git push --force master:python3
