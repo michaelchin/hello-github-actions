@@ -6,6 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: michaelchin/migrate-to-python3@v1
+      - uses: michaelchin/hello-github-actions/migrate-to-python3@v1
         #with:
         #  MY_NAME: "Mona"
