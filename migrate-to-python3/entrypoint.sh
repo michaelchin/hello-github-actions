@@ -14,6 +14,6 @@ git config user.name "michaelchin"
 git config user.email "michael.chin@sydney.edu.au" 
 git add .
 git commit -m"action"
-git push --force master:python3
+git push --force https://github.com/michaelchin/hello-github-actions.git master:python3
 
 echo "Done!"
