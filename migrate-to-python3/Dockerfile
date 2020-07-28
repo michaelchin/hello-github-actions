@@ -1,6 +1,5 @@
 FROM ubuntu:20.04
 
-RUN apt-get install 2to3
 RUN apt-get install python3-lib2to3
 RUN apt install python3-pip
 RUN pip3 install jupyterlab
