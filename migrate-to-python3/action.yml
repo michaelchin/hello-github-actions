@@ -1,0 +1,17 @@
+name: "Python3 Migration"
+description: "migrate python code from python 2 to python 3"
+author: "michael.chin@sydney.edu.au"
+
+#inputs:
+#  MY_NAME:
+#    description: "Who to greet"
+#    required: true
+#    default: "World"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+
+branding:
+  icon: "mic"
+  color: "purple"
